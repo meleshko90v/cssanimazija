@@ -1,0 +1,98 @@
+.box {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+}
+
+.box::after {
+    content: "";
+    border-radius: 5px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 20px 20px 4px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 1.6s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+}
+
+.box:hover {
+    -webkit-transform: scale(1.25, 1.25);
+    transform: scale(2.25, 2.25);
+}
+
+.box:hover::after {
+    opacity: 1;
+}
+
+
+
+.circle {
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(crimson, gold, yellowgreen, teal, crimson);
+    background-position: 0 0;
+    border: 10px solid black;
+    animation: background 2s infinite alternate;
+}
+
+@keyframes background {
+    100% {
+        background-position: 200px 200px;
+    }
+}
+
+.circle2 {
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    background: -webkit-linear-gradient(left, red 0%, orange 20%,
+    yellow 80%, violet 100%);
+    background-position: 0 0;
+    border: 10px solid black;
+    animation: background 2s infinite alternate;
+}
+
+body {
+    margin: 20px;
+    padding: 0;
+}
+
+
+.star-six {
+    width: 0px;
+    height: 0px;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 270px solid red;
+    position: absolute; left: 480px; top: 350px;
+}
+.star-six:after {
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 270px solid red;
+    position: absolute;
+    content: "";
+    top: 90px;
+    left: -150px;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.star-six {
+    animation: spin 3s linear 0s infinite;
+}
